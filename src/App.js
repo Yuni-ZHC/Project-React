@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
-
+import { Route, Routes, Navigate } from "react-router-dom"; 
+import Dashboard from "./Dashboard";
+import DataGuru from "./DataGuru";
+import DataMurid from "./DataMurid";
+import TambahData from "./Tambah_Data";
+import UpdateData from "./Update_Data";
+import Navbar from "./Component/Navbar";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"> 
+      <Routes> 
+        {/* Redirect root path "/" to "/Home" */}
+        <Route path="/" element={<Navigate to="/DataGuru" />} />
+        <Route path="Dashboard" element={<Dashboard />} />
+        <Route path="DataGuru" element={<DataGuru />} />
+        <Route path="DataMurid" element={<DataMurid />} />
+        <Route path="Tambah_Data" element={<TambahData />} />
+        <Route path="Update_Data" element={<UpdateData />} />
+        <Route path="Navbar" element={<Navbar />} />
+      </Routes>
     </div>
   );
 }
