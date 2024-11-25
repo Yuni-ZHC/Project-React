@@ -1,0 +1,116 @@
+
+
+.dashboard {
+  margin-left: 240px;
+  padding: 30px;
+  background: linear-gradient(to bottom, #FFB6C1, #eec3cd);
+  min-height: 100vh;
+  border-radius: 15px;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333; /* Kontras dengan latar belakang */
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2); /* Memberi efek lembut */
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: linear-gradient(to bottom, #FFB6C1, #FFD1DC); /* Lembut dan bersih */
+  border-radius: 20px;
+  width: 30%;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #FFB6C1; /* Pastel Pink */
+  color: #FFD1DC;
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #FFB6C1; /* Pink Lebih Gelap */
+}
+
+.card-body {
+  padding: 20px;
+  color: #FFD1DC;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to bottom,  #FFB6C1, #FFD1DC); /* Gradien Lembut */
+}
+
+.card h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #FFB6C1;
+  text-align: center;
+}
+
+.card p {
+  font-size: 16px;
+  color: #FFB6C1;
+  text-align: center;
+}
+
+.card::before {
+  content: "✨"; /* Menambahkan dekorasi imut */
+  font-size: 24px;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+}
+
+/* Add this in a global CSS file or inside the sx prop */
+
+@media (max-width: 768px) {
+  .card {
+    width: 100% !important; /* Full width for smaller screens */
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .MuiCard-root {
+    max-width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .MuiTableContainer-root {
+    overflow-x: auto;
+  }
+}
+

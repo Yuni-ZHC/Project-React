@@ -1,5 +1,120 @@
 {
-    "Data": [
-        
-    ]
+  "teacher": [
+    {
+      "id": "1",
+      "nama": "Chenle Zhong",
+      "mapel": "Matematika",
+      "nik": "375527841657",
+      "gender": "Laki-Laki",
+      "jabatan": "Kepala Sekolah & CEO SM Entertaiment"
+    },
+    {
+      "id": "2",
+      "nama": "Enami Asa",
+      "mapel": "Bahasa Jepang",
+      "nik": "75672738647",
+      "gender": "Perempuan",
+      "jabatan": "Sekertaris"
+    },
+    {
+      "id": "3",
+      "nama": "Lee Jeno ",
+      "mapel": "PJOK",
+      "nik": "3785785899875",
+      "gender": "Laki-Laki",
+      "jabatan": "Wakil Kepala Sekolah"
+    },
+    {
+      "id": "c9ba",
+      "nama": "Mark Lee",
+      "mapel": "Bahasa Inggris",
+      "nik": "6245763855",
+      "gender": "Laki-Laki",
+      "jabatan": "Bendahara"
+    },
+    {
+      "id": "3c18",
+      "nama": "Lin Yi",
+      "mapel": "IPS",
+      "nik": "657856783569",
+      "gender": "Laki-Laki",
+      "jabatan": "Guru Magang"
+    },
+    {
+      "id": "8baa",
+      "nama": "Xu Kai",
+      "mapel": "IPA",
+      "nik": "63453857626",
+      "gender": "Laki-Laki",
+      "jabatan": "Guru Tetap"
+    },
+    {
+      "id": "7668",
+      "nama": "Haidar",
+      "mapel": "Komputer",
+      "nik": "873485689487",
+      "gender": "Laki-Laki",
+      "jabatan": "Guru Magang"
+    }
+  ],
+  "student": [
+    {
+      "id": "b44d",
+      "nama": "Zahra",
+      "kelas": "X",
+      "jurusan": "TKJ",
+      "nisn": "56723683917",
+      "asal": "IHS Korea",
+      "sekolah": "IHS Korea"
+    },
+    {
+      "id": "3b44",
+      "nama": "Yuni",
+      "kelas": "X",
+      "jurusan": "TKJ",
+      "nisn": "5672368391798",
+      "asal": "IHS Korea"
+    },
+    {
+      "id": "a9f7",
+      "nama": "Naja",
+      "kelas": "X",
+      "jurusan": "TKJ",
+      "nisn": "46575686457",
+      "asal": "IHS Korea"
+    },
+    {
+      "id": "f51b",
+      "nama": "Mila",
+      "kelas": "X",
+      "jurusan": "TKJ",
+      "nisn": "63456345276",
+      "asal": "IHS LA"
+    },
+    {
+      "id": "7937",
+      "nama": "Fifah",
+      "kelas": "X",
+      "jurusan": "TKJ",
+      "nisn": "763546352756",
+      "asal": "IHS Prancis",
+      "sekolah": "IHS Prancis"
+    },
+    {
+      "id": "2612",
+      "nama": "Vita",
+      "kelas": "X",
+      "jurusan": "TKJ",
+      "nisn": "673254723563",
+      "asal": "IHS California"
+    },
+    {
+      "id": "098e",
+      "nama": "Rika",
+      "kelas": "XI",
+      "jurusan": "TKJ",
+      "nisn": "7678563746",
+      "asal": "IHS Indonesia"
+    }
+  ]
 }

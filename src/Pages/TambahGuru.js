@@ -7,9 +7,9 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Navbar from "./Component/Navbar";
+import Sidebar from "../Components/Sidebar";
 
-export default function AddData() {
+export default function Addguru() {
   const [formData, setFormData] = useState({
     nama: '',
     mapel: '',
@@ -31,7 +31,7 @@ export default function AddData() {
   // Fungsi untuk mengirim data ke API
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3030/Data', formData)
+    axios.post('http://localhost:3030/teacher', formData)
       .then(() => {
         // SweetAlert untuk notifikasi sukses
         Swal.fire({
@@ -40,7 +40,7 @@ export default function AddData() {
           icon: 'success',
           confirmButtonText: 'OK',
         }).then(() => {
-          navigate('/Dashboard'); // Kembali ke Dashboard setelah menutup alert
+          navigate('/DataGuru'); // Kembali ke Dashboard setelah menutup alert
         });
       })
       .catch(error => {
@@ -57,8 +57,8 @@ export default function AddData() {
 
   return (
     <>
-      <Navbar />
-      <Container component="main" maxWidth="sm">
+      <Sidebar />
+      <Container component="main" maxWidth="sm" sx={{ background: 'linear-gradient(135deg, #FFD1DC, #FFB6C1)', padding: '20px', borderRadius: '8px' }}>
         <Box
           sx={{
             marginTop: 8,
@@ -67,8 +67,8 @@ export default function AddData() {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5">
-            Tambah Data
+          <Typography component="h1" variant="h5" sx={{ background: 'linear-gradient(135deg, #FFD1DC, #FFB6C1)' }}>
+            Tambah Data Guru
           </Typography>
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <TextField
@@ -76,7 +76,7 @@ export default function AddData() {
               required
               fullWidth
               id="nama"
-              label="nama Guru"
+              label="Nama Guru"
               name="nama"
               value={formData.nama}
               onChange={handleChange}
@@ -86,9 +86,8 @@ export default function AddData() {
               required
               fullWidth
               id="mapel"
-              label="mapel"
+              label="Mata Pelajaran"
               name="mapel"
-              type="Text"
               value={formData.mapel}
               onChange={handleChange}
             />
@@ -97,7 +96,7 @@ export default function AddData() {
               required
               fullWidth
               id="nik"
-              label="nik"
+              label="NIK"
               name="nik"
               type="number"
               value={formData.nik}
@@ -108,7 +107,7 @@ export default function AddData() {
               required
               fullWidth
               id="gender"
-              label="gender"
+              label="Gender"
               name="gender"
               value={formData.gender}
               onChange={handleChange}
@@ -118,7 +117,7 @@ export default function AddData() {
               required
               fullWidth
               id="jabatan"
-              label="jabatan"
+              label="Jabatan"
               name="jabatan"
               value={formData.jabatan}
               onChange={handleChange}
@@ -127,8 +126,15 @@ export default function AddData() {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{
+                mt: 3,
+                mb: 2,
+                background: 'linear-gradient(135deg, #FFD1DC, #FFB6C1)', // Gradasi warna untuk tombol
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #FFB6C1, #FFD1DC)', // Gradasi terbalik saat hover
+                },
+                color: '#0d0d0d',
+              }}
             >
               Simpan
             </Button>
@@ -136,7 +142,15 @@ export default function AddData() {
               fullWidth
               variant="outlined"
               color="secondary"
-              onClick={() => navigate('Dashboard')} // Navigasi kembali ke Dashboard
+              onClick={() => navigate('/DataGuru')} // Navigasi kembali ke Dashboard
+              sx={{
+                borderColor: '#FFB6C1',
+                color: '#0d0d0d',
+                '&:hover': {
+                  borderColor: '#0d0d0d',
+                  color: '#0d0d0d',
+                },
+              }}
             >
               Batal
             </Button>

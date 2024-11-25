@@ -1,26 +1,35 @@
-import React from "react";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Sidebar from './Components/Sidebar';
+import Dashboard from './Pages/Dashboard';
+import DataGuru from './Pages/DataGuru';
+import DataSiswa from './Pages/DataSiswa';
+import TambahGuru from './Pages/TambahGuru';
+import EditGuru from './Pages/EditGuru';
+import TambahSiswa from './Pages/TambahSiswa';
+import EditSiswa from './Pages/EditSiswa'; 
 import './App.css';
-import { Route, Routes, Navigate } from "react-router-dom"; 
-import Dashboard from "./Dashboard";
-import DataGuru from "./DataGuru";
-import DataMurid from "./DataMurid";
-import TambahData from "./Tambah_Data";
-import UpdateData from "./Update_Data";
-import Navbar from "./Component/Navbar";
+
 function App() {
   return (
-    <div className="App"> 
-      <Routes> 
-        {/* Redirect root path "/" to "/Home" */}
-        <Route path="/" element={<Navigate to="/DataGuru" />} />
-        <Route path="Dashboard" element={<Dashboard />} />
-        <Route path="DataGuru" element={<DataGuru />} />
-        <Route path="DataMurid" element={<DataMurid />} />
-        <Route path="Tambah_Data" element={<TambahData />} />
-        <Route path="Update_Data" element={<UpdateData />} />
-        <Route path="Navbar" element={<Navbar />} />
-      </Routes>
-    </div>
+    <Router>
+      <div className="App">
+        <Sidebar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/DataGuru" element={<DataGuru />} />
+            <Route path="/DataSiswa" element={<DataSiswa />} />
+            <Route path="/TambahGuru" element={<TambahGuru />} />
+            <Route path="/EditGuru/:id" element={<EditGuru />} />
+            <Route path="/TambahSiswa" element={<TambahSiswa />} />
+            <Route path="/EditSiswa/:id" element={<EditSiswa />} />
+            
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,72 @@
+/* styles.css */
+.soft-blue-background {
+    background: linear-gradient(to bottom, #ffe4e1, #e4f9ff); /* Pastel Pink to Light Blue */
+    min-height: 100vh;
+    padding: 30px;
+  }
+  
+  .table-container {
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table-header {
+    background-color: #ffb6c1; /* Light Pink */
+  }
+  
+  .table-header-cell {
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+  }
+  
+  .table-row:nth-of-type(odd) {
+    background-color: #fce4ec; /* Soft Pink */
+  }
+  
+  .table-row:nth-of-type(even) {
+    background-color: #e0f7fa; /* Soft Blue */
+  }
+  
+  .table-row:hover {
+    background-color: #f8bbd0; /* Hover Pink */
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .button-icon {
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .button-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  .add-button {
+    background-color: #f48fb1; /* Pink Pastel */
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-button:hover {
+    background-color: #ec407a; /* Bright Pink */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  

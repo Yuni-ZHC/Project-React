@@ -7,9 +7,9 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Navbar from "./Component/Navbar";
+import Sidebar from "../Components/Sidebar";
 
-export default function EditDate() {
+export default function EditGuru() {
   const [formData, setFormData] = useState({
     nama: '',
     mapel: '',
@@ -22,7 +22,7 @@ export default function EditDate() {
 
   // Load data awal berdasarkan ID
   useEffect(() => {
-    axios.get(`http://localhost:3030/Data/${id}`) // Ambil data berdasarkan ID
+    axios.get(`http://localhost:3030/teacher/${id}`) // Ambil data berdasarkan ID
       .then(response => {
         setFormData(response.data); // Isi form dengan data dari API
       })
@@ -44,7 +44,7 @@ export default function EditDate() {
   // Fungsi untuk mengirim data yang diperbarui ke API
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:3030/Data/${id}`, formData) // Kirim data yang diperbarui
+    axios.put(`http://localhost:3030/teacher/${id}`, formData) // Kirim data yang diperbarui
       .then(() => {
         // SweetAlert untuk notifikasi sukses
         Swal.fire({
@@ -53,7 +53,7 @@ export default function EditDate() {
           icon: 'success',
           confirmButtonText: 'OK',
         }).then(() => {
-          navigate('/Dashboard'); // Kembali ke halaman Dashboard setelah menutup alert
+          navigate('/DataGuru'); // Kembali ke halaman Dashboard setelah menutup alert
         });
       })
       .catch(error => {
@@ -70,10 +70,11 @@ export default function EditDate() {
 
   return (
     <>
-      <Navbar />
+      <Sidebar />
       <Container component="main" maxWidth="sm">
         <Box
           sx={{
+            background: 'linear-gradient(135deg, #FFD1DC, #FFB6C1)',
             marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
@@ -81,10 +82,10 @@ export default function EditDate() {
           }}
         >
           <Typography component="h1" variant="h5">
-            Edit Data 
+            Edit Data Guru
           </Typography>
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <TextField
+          <TextField
               margin="normal"
               required
               fullWidth
@@ -98,9 +99,10 @@ export default function EditDate() {
               margin="normal"
               required
               fullWidth
-              id=" mapel"
-              label="mata pelajaran"
+              id="mapel"
+              label="Mata Pelajaran"
               name="mapel"
+              type="text"
               value={formData.mapel}
               onChange={handleChange}
             />
@@ -109,9 +111,9 @@ export default function EditDate() {
               required
               fullWidth
               id="nik"
-              label="nik"
+              label="NIK"
               name="nik"
-              type="number"
+               type="number"
               value={formData.nik}
               onChange={handleChange}
             />
@@ -120,8 +122,9 @@ export default function EditDate() {
               required
               fullWidth
               id="gender"
-              label="jenis kelamin"
+              label="Gender"
               name="gender"
+               type="text"
               value={formData.gender}
               onChange={handleChange}
             />
@@ -130,8 +133,9 @@ export default function EditDate() {
               required
               fullWidth
               id="jabatan"
-              label="kedudukan dalam pekerjaan"
+              label="Jabatan"
               name="jabatan"
+               type="text"
               value={formData.jabatan}
               onChange={handleChange}
             />
@@ -148,7 +152,7 @@ export default function EditDate() {
               fullWidth
               variant="outlined"
               color="secondary"
-              onClick={() => navigate('/Dashboard')} // Navigasi kembali ke Dashboard
+              onClick={() => navigate('/DataGuru')} // Navigasi kembali ke Dashboard
             >
               Batal
             </Button>

@@ -1,0 +1,58 @@
+.card {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .table-container {
+    overflow-x: auto; /* Membuat tabel bisa digulirkan secara horizontal di layar kecil */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    table-layout: auto; /* Membuat lebar kolom menyesuaikan */
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    table {
+      width: 100%;
+      display: block;
+      white-space: nowrap; /* Mencegah teks kolom terpotong */
+    }
+    
+    th, td {
+      padding: 8px;
+    }
+  
+    th {
+      font-size: 14px;
+    }
+  
+    td {
+      font-size: 12px;
+    }
+  
+    /* Mengubah ukuran teks agar lebih kecil pada perangkat mobile */
+  }
+  
