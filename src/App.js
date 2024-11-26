@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './Components/Sidebar';
 import Dashboard from './Pages/Dashboard';
@@ -7,15 +7,21 @@ import DataSiswa from './Pages/DataSiswa';
 import TambahGuru from './Pages/TambahGuru';
 import EditGuru from './Pages/EditGuru';
 import TambahSiswa from './Pages/TambahSiswa';
-import EditSiswa from './Pages/EditSiswa'; 
+import EditSiswa from './Pages/EditSiswa';
 import './App.css';
 
 function App() {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleCollapse = () => {
+    setCollapsed(!collapsed);
+  };
+
   return (
     <Router>
       <div className="App">
-        <Sidebar />
-        <div className="content">
+        <Sidebar collapsed={collapsed} toggleCollapse={toggleCollapse} />
+        <div className={`content ${collapsed ? 'collapsed' : 'expanded'}`}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/Dashboard" element={<Dashboard />} />
@@ -25,7 +31,6 @@ function App() {
             <Route path="/EditGuru/:id" element={<EditGuru />} />
             <Route path="/TambahSiswa" element={<TambahSiswa />} />
             <Route path="/EditSiswa/:id" element={<EditSiswa />} />
-            
           </Routes>
         </div>
       </div>

@@ -34,10 +34,10 @@
     },
     {
       "id": "3c18",
-      "nama": "Lin Yi",
+      "nama": "Cheng Xiao",
       "mapel": "IPS",
-      "nik": "657856783569",
-      "gender": "Laki-Laki",
+      "nik": "765473867",
+      "gender": "Perempuan",
       "jabatan": "Guru Magang"
     },
     {
@@ -49,12 +49,12 @@
       "jabatan": "Guru Tetap"
     },
     {
-      "id": "7668",
-      "nama": "Haidar",
-      "mapel": "Komputer",
-      "nik": "873485689487",
+      "id": "e7bc",
+      "nama": "Park Jisung",
+      "mapel": "IPS",
+      "nik": "7648576387",
       "gender": "Laki-Laki",
-      "jabatan": "Guru Magang"
+      "jabatan": "Guru Tetap"
     }
   ],
   "student": [

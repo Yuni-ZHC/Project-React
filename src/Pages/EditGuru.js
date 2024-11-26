@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Sidebar from "../Components/Sidebar";
 
 export default function EditGuru() {
   const [formData, setFormData] = useState({
@@ -70,95 +69,108 @@ export default function EditGuru() {
 
   return (
     <>
-      <Sidebar />
-      <Container component="main" maxWidth="sm">
-        <Box
-          sx={{
-            background: 'linear-gradient(135deg, #FFD1DC, #FFB6C1)',
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Typography component="h1" variant="h5">
-            Edit Data Guru
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
-          <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="nama"
-              label="Nama Guru"
-              name="nama"
-              value={formData.nama}
-              onChange={handleChange}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="mapel"
-              label="Mata Pelajaran"
-              name="mapel"
-              type="text"
-              value={formData.mapel}
-              onChange={handleChange}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="nik"
-              label="NIK"
-              name="nik"
-               type="number"
-              value={formData.nik}
-              onChange={handleChange}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="gender"
-              label="Gender"
-              name="gender"
-               type="text"
-              value={formData.gender}
-              onChange={handleChange}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="jabatan"
-              label="Jabatan"
-              name="jabatan"
-               type="text"
-              value={formData.jabatan}
-              onChange={handleChange}
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Simpan
-            </Button>
-            <Button
-              fullWidth
-              variant="outlined"
-              color="secondary"
-              onClick={() => navigate('/DataGuru')} // Navigasi kembali ke Dashboard
-            >
-              Batal
-            </Button>
+      {/* Set background gradient for the entire body */}
+      <div style={{ 
+        background: 'linear-gradient(135deg, #FFD1DC, #FFB6C1)', 
+        minHeight: '100vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center' 
+      }}>
+        <Container component="main" maxWidth="sm">
+          <Box
+            sx={{
+              backgroundColor: 'white', // White background for the form itself
+              padding: 3, // Added padding to space out content
+              borderRadius: 2, // Optional: Rounded corners for a smoother look
+              boxShadow: 3, // Optional: Slight shadow for depth
+            }}
+          >
+            <Typography component="h1" variant="h5">
+              Edit Data Guru
+            </Typography>
+            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="nama"
+                label="Nama Guru"
+                name="nama"
+                value={formData.nama}
+                onChange={handleChange}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="mapel"
+                label="Mata Pelajaran"
+                name="mapel"
+                type="text"
+                value={formData.mapel}
+                onChange={handleChange}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="nik"
+                label="NIK"
+                name="nik"
+                type="number"
+                value={formData.nik}
+                onChange={handleChange}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="gender"
+                label="Gender"
+                name="gender"
+                type="text"
+                value={formData.gender}
+                onChange={handleChange}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="jabatan"
+                label="Jabatan"
+                name="jabatan"
+                type="text"
+                value={formData.jabatan}
+                onChange={handleChange}
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{
+                  mt: 2,
+                  mb: 2,
+                  backgroundColor: '#FFB6C1', // Button color adjustment
+                  '&:hover': {
+                    backgroundColor: '#FF9BB0', // Hover effect
+                  },
+                }}
+              >
+                Simpan
+              </Button>
+              <Button
+                fullWidth
+                variant="outlined"
+                color="secondary"
+                onClick={() => navigate('/DataGuru')} // Navigasi kembali ke Dashboard
+              >
+                Batal
+              </Button>
+            </Box>
           </Box>
-        </Box>
-      </Container>
+        </Container>
+      </div>
     </>
   );
 }

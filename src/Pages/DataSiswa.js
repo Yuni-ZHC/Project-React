@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Swal from 'sweetalert2'; 
+import Swal from 'sweetalert2';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,10 +10,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import { Box } from '@mui/material'; // Responsif Wrapper
+import TextField from '@mui/material/TextField';
+import { Box } from '@mui/material';
 
 export default function Dashboard() {
   const [student, setStudent] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -53,6 +55,18 @@ export default function Dashboard() {
     navigate(`/EditSiswa/${id}`);
   };
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value.toLowerCase());
+  };
+
+  const filteredStudents = student.filter((murid) =>
+    murid.nama.toLowerCase().includes(searchTerm) ||
+    murid.kelas.toLowerCase().includes(searchTerm) ||
+    murid.jurusan.toLowerCase().includes(searchTerm) ||
+    murid.nisn.toString().includes(searchTerm) ||
+    murid.asal.toLowerCase().includes(searchTerm)
+  );
+
   return (
     <Box 
       sx={{
@@ -61,44 +75,72 @@ export default function Dashboard() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: { xs: '20px', md: '40px' }, // Responsif Padding
+        padding: { xs: '20px', md: '40px' },
       }}
     >
-      <Box 
-        sx={{
-          marginBottom: '20px',
-          display: 'flex',
-          justifyContent: 'center',
-          width: '100%',
-          maxWidth: '1200px',
-        }}
-      >
-        <Button 
-          variant="contained" 
-          color="primary" 
-          onClick={() => navigate('/TambahSiswa')}
+     <Box 
+  sx={{
+    marginBottom: '20px',
+    display: 'flex',
+    justifyContent: 'center',
+    width: '100%',
+    maxWidth: '1200px',
+  }}
+>
+  <Paper
+    elevation={6}
+    sx={{
+      display: 'flex',
+      alignItems: 'center',
+      padding: '10px',
+      borderRadius: '15px',
+      background: 'linear-gradient(to right, #FFD1DC, #FFB6C1)',
+      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+      width: '350px',
+    }}
+  >
+    <TextField
+      label="Cari Siswa"
+      variant="outlined"
+      value={searchTerm}
+      onChange={handleSearch}
+      fullWidth
+      sx={{
+        background: 'white',
+        borderRadius: '5px',
+      }}
+    />
+    <Button
+      variant="contained"
+      sx={{
+        marginLeft: '10px',
+        backgroundColor: '#FFB6C1',
+        color: '#fff',
+        '&:hover': {
+          backgroundColor: '#FFD1DC',
+        },
+        borderRadius: '10px',
+        padding: '5px 15px',
+      }}
+    >
+      Cari
+    </Button>
+  </Paper>
+</Box>
+
+      <TableContainer
+          component={Paper}
           sx={{
             borderRadius: '20px',
-            boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
-            '&:hover': {
-              backgroundColor: '#1E88E5',
-            },
+            overflowX: 'auto',
+            p: 2,
+            maxWidth: { xs: '80%', md: '80%' },
+            mx: 'auto',
+            ml: '220px', // Geser tabel ke kanan
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
           }}
         >
-          Tambah Siswa
-        </Button>
-      </Box>
-      <TableContainer
-        component={Paper}
-        sx={{
-          borderRadius: '10px',
-          boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-          padding: '20px',
-          width: '100%',
-          maxWidth: '1200px', // Maksimal lebar tabel
-          overflowX: 'auto', // Scroll Horizontal
-        }}
-      >
+
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow sx={{ backgroundColor: '#1976d2' }}>
@@ -112,7 +154,7 @@ export default function Dashboard() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {student.map((murid, index) => (
+            {filteredStudents.map((murid, index) => (
               <TableRow
                 key={murid.id}
                 sx={{
@@ -132,22 +174,12 @@ export default function Dashboard() {
                     variant="contained" 
                     onClick={() => handleDelete(murid.id)}
                     style={{ marginRight: '10px', borderRadius: '50%' }}
-                    sx={{
-                      '&:hover': {
-                        backgroundColor: '#f44336',
-                      },
-                    }}
                   >
                     🗑️
                   </Button>
                   <Button 
                     variant="contained" 
                     onClick={() => handleUpdate(murid.id)}
-                    sx={{
-                      '&:hover': {
-                        backgroundColor: '#1976d2',
-                      },
-                    }}
                   >
                     ✏️
                   </Button>

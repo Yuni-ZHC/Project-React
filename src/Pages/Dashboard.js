@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaUsers, FaChalkboardTeacher, FaClipboardList } from 'react-icons/fa';
+import { FaUsers, FaChalkboardTeacher,} from 'react-icons/fa';
 import { Box, Card, CardContent, CardHeader, Typography } from '@mui/material';
 import { blue, pink } from '@mui/material/colors';
 
@@ -21,7 +21,6 @@ const Dashboard = () => {
         justifyContent: 'center',
         background: '#FFD1DC',
         minHeight: '100vh',
-        paddingTop: '30px',
         paddingBottom: '30px',
       }}
     >
@@ -30,7 +29,7 @@ const Dashboard = () => {
         component="h2"
         sx={{
           fontWeight: '700',
-          color: blue[300],
+          color: blue[250],
           marginBottom: '50px',
           textAlign: 'center',
         }}
@@ -52,36 +51,6 @@ const Dashboard = () => {
           overflow: 'auto',
         }}
       >
-        {/* Card Dashboard */}
-        <Card
-          onClick={() => goToPage('/Dashboard')}
-          sx={{
-            background: `linear-gradient(to bottom, #FFB6C1, #FFD1DC)`,
-            boxShadow: 3,
-            cursor: 'pointer',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            '&:hover': {
-              transform: 'scale(1.05)',
-              boxShadow: 6,
-            },
-            marginBottom: '15px',
-            height: '150px',
-            width: '100%',
-            maxWidth: '350px',
-          }}
-        >
-          <CardHeader
-            avatar={<FaClipboardList size={30} color="#FFD1DC" />}
-            title={<Typography variant="h6" sx={{ color: '#0d0d0d' }}>Dashboard</Typography>}
-            sx={{ backgroundColor: pink[200] }}
-          />
-          <CardContent>
-            <Typography sx={{ color: '#0d0d0d' }}>
-              Overview sistem dan data.
-            </Typography>
-          </CardContent>
-        </Card>
-
         {/* Card Data Guru */}
         <Card
           onClick={() => goToPage('/DataGuru')}

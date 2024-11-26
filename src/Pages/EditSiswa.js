@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Sidebar from "../Components/Sidebar";
 
 export default function EditSiswa() {
   const [formData, setFormData] = useState({
@@ -70,92 +69,133 @@ export default function EditSiswa() {
 
   return (
     <>
-      <Sidebar />
-      <Container component="main" maxWidth="sm">
-        <Box
-          sx={{
-            background: 'linear-gradient(135deg, #FFD1DC, #FFB6C1)',
-            marginTop: 10,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Typography component="h1" variant="h5">
-            Edit Data Siswa
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="nama"
-              label="Nama Siswa"
-              name="nama"
-              value={formData.nama}
-              onChange={handleChange}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="kelas"
-              label="Kelas"
-              name="kelas"
-              type="text"
-              value={formData.kelas}
-              onChange={handleChange}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="jurusan"
-              label="Jurusan"
-              name="jurusan"
-              value={formData.jurusan}
-              onChange={handleChange}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="nisn"
-              label="NISN"
-              name="nisn"
-              value={formData.nisn}
-              onChange={handleChange}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="sekolah"
-              label="Asal Sekolah"
-              name="sekolah"
-              value={formData.sekolah}
-              onChange={handleChange}
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Simpan
-            </Button>
-            <Button
-              fullWidth
-              variant="outlined"
-              color="secondary"
-              onClick={() => navigate('/DataSiswa')} // Navigasi kembali ke Dashboard
-            >
-              Batal
-            </Button>
+      {/* Set background gradient for the entire page */}
+      <div style={{ 
+        background: 'linear-gradient(135deg, #FFD1DC, #FFB6C1)', 
+        minHeight: '100vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center' 
+      }}>
+        <Container component="main" maxWidth="sm" sx={{
+          padding: { xs: 2, sm: 3 }, // Padding responsif
+          backgroundColor: 'white', // White background for the form itself
+          borderRadius: 2,
+          boxShadow: 3,
+          mt: 2,
+        }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start', // Menggeser ke kiri sedikit
+              justifyContent: 'center',
+              pt: 2, // Mengurangi padding atas box
+              ml: 2, // Menggeser form sedikit ke kanan
+            }}
+          >
+            <Typography component="h1" variant="h5" sx={{
+              marginBottom: 1, // Mengurangi jarak bawah untuk title
+              fontWeight: 'bold',
+              textAlign: 'left', // Mengatur teks menjadi rata kiri
+            }}>
+              Edit Data Siswa
+            </Typography>
+            <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%' }}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="nama"
+                label="Nama Siswa"
+                name="nama"
+                value={formData.nama}
+                onChange={handleChange}
+                sx={{ marginBottom: 2 }}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="kelas"
+                label="Kelas"
+                name="kelas"
+                type="text"
+                value={formData.kelas}
+                onChange={handleChange}
+                sx={{ marginBottom: 2 }}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="jurusan"
+                label="Jurusan"
+                name="jurusan"
+                value={formData.jurusan}
+                onChange={handleChange}
+                sx={{ marginBottom: 2 }}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="nisn"
+                label="NISN"
+                name="nisn"
+                value={formData.nisn}
+                onChange={handleChange}
+                sx={{ marginBottom: 2 }}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="sekolah"
+                label="Asal Sekolah"
+                name="sekolah"
+                value={formData.sekolah}
+                onChange={handleChange}
+                sx={{ marginBottom: 2 }}
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                sx={{
+                  mt: 3, 
+                  mb: 2, 
+                  padding: '10px', 
+                  backgroundColor: '#FFB6C1',
+                  '&:hover': {
+                    backgroundColor: '#FFD1DC',
+                  },
+                }}
+              >
+                Simpan
+              </Button>
+              <Button
+                fullWidth
+                variant="outlined"
+                color="secondary"
+                onClick={() => navigate('/DataSiswa')} // Navigasi kembali ke Dashboard
+                sx={{
+                  padding: '10px',
+                  borderColor: '#FFB6C1',
+                  color: '#FFB6C1',
+                  '&:hover': {
+                    borderColor: '#FFD1DC',
+                    color: '#FFD1DC',
+                  },
+                }}
+              >
+                Batal
+              </Button>
+            </Box>
           </Box>
-        </Box>
-      </Container>
+        </Container>
+      </div>
     </>
   );
 }
